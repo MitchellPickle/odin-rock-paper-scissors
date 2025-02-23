@@ -35,10 +35,15 @@ function getComputerChoice()
     // console.log("Computer Choice: " + computerChoiceString);
 }
 
-function getHumanChoice(computerChoice)
+function getHumanChoice()
 {
     let humanChoice = prompt("Enter your choice (Rock = rock or 1. Paper = paper or 2. Scissors = scissors or 3.) \nNOTE: Case Sensitive");
     console.log("Human Choice: " + humanChoice);
+    return humanChoice;
+}
+
+function playRound(humanChoice, computerChoice)
+{
     let outcome;
 
     //If the player chooses rock
@@ -119,4 +124,5 @@ function getHumanChoice(computerChoice)
 }
 
 let computerChoice = getComputerChoice();
-getHumanChoice(computerChoice);
+let playerChoice = getHumanChoice();
+playRound(playerChoice, computerChoice);
