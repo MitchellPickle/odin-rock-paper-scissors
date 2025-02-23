@@ -52,19 +52,19 @@ function playRound(humanChoice, computerChoice)
         if(computerChoice == "rock")
         {
             outcome = "Tie!"
-            alert("Round Outcome: " + outcome);
+            alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
             return outcome;
         }
         if(computerChoice == "paper")
         {
             outcome = "You Lost!"
-            alert("Round Outcome: " + outcome);
+            alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
             return outcome;
         }
         if(computerChoice == "scissors")
         {
             outcome = "You Win!";
-            alert("Round Outcome: " + outcome);
+            alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
             return outcome;
         }
     }
@@ -75,19 +75,19 @@ function playRound(humanChoice, computerChoice)
         if(computerChoice == "rock")
         {
             outcome = "You Win!"
-            alert("Round Outcome: " + outcome);
+            alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
             return outcome;
         }
         if(computerChoice == "paper")
         {
             outcome = "Tie!";
-            alert("Round Outcome: " + outcome);
+            alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
             return outcome;
         }
         if(computerChoice == "scissors")
         {
             outcome = "You Lost!";
-            alert("Round Outcome: " + outcome);
+            alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
             return outcome;
         }
     }
@@ -98,19 +98,19 @@ function playRound(humanChoice, computerChoice)
         if(computerChoice == "rock")
         {
             outcome = "You Lost!";
-            alert("Round Outcome: " + outcome);
+            alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
             return outcome;
         }
         if(computerChoice == "paper")
         {
             outcome = "You Win!"
-            alert("Round Outcome: " + outcome);
+            alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
             return outcome;
         }
         if(computerChoice == "scissors")
         {
             outcome = "Tie!";
-            alert("Round Outcome: " + outcome);
+            alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
             return outcome;
         }
     }
