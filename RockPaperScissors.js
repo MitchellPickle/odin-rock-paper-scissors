@@ -1,4 +1,4 @@
-//TODO: ERROR messages appear twice
+//TODO: Add Game length change functionality
 
 let playerScore = 0;
 let computerScore = 0;
