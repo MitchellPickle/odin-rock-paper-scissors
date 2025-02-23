@@ -1,9 +1,13 @@
-console.log("Hello World!");
+//TODO: ERROR messages appear twice
+
+let playerScore = 0;
+let computerScore = 0;
+let validRound;
 
 function getComputerChoice()
 {
     let computerChoiceNum = Math.floor(Math.random() * 3) + 1;
-    console.log(computerChoiceNum);
+    //console.log(computerChoiceNum);
 
     let computerChoiceString;
 
@@ -37,7 +41,8 @@ function getComputerChoice()
 
 function getHumanChoice()
 {
-    let humanChoice = prompt("Enter your choice (Rock = rock or 1. Paper = paper or 2. Scissors = scissors or 3.) \nNOTE: Case Sensitive");
+    let humanChoice = prompt("Enter your choice (Rock = rock. Paper = paper. Scissors = scissors.) \nNOTE: Case insensitive (Changes to lower case)");
+    humanChoice = humanChoice.toLowerCase();
     console.log("Human Choice: " + humanChoice);
     return humanChoice;
 }
@@ -45,73 +50,81 @@ function getHumanChoice()
 function playRound(humanChoice, computerChoice)
 {
     let outcome;
+    validRound = true;
 
     //If the player chooses rock
-    if(humanChoice == 1 || humanChoice == "rock")
+    if(humanChoice == "rock")
     {
         if(computerChoice == "rock")
         {
             outcome = "Tie!"
             alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
-            return outcome;
+            validRound = true;
+            return validRound;
         }
         if(computerChoice == "paper")
         {
             outcome = "You Lost!"
             alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
-            return outcome;
+            computerScore++;
+            return validRound;
         }
         if(computerChoice == "scissors")
         {
             outcome = "You Win!";
             alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
-            return outcome;
+            playerScore++;
+            return validRound;
         }
     }
 
     //If the player chooses paper
-    else if(humanChoice == 2 || humanChoice == "paper")
+    else if(humanChoice == "paper")
     {
         if(computerChoice == "rock")
         {
             outcome = "You Win!"
             alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
-            return outcome;
+            playerScore++;
+            return validRound;
         }
         if(computerChoice == "paper")
         {
             outcome = "Tie!";
             alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
-            return outcome;
+            return validRound;
         }
         if(computerChoice == "scissors")
         {
             outcome = "You Lost!";
             alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
-            return outcome;
+            computerScore++;
+            return validRound;
         }
     }
     
     //If the player chooses scissors
-    else if(humanChoice == 3 || humanChoice == "scissors")
+    else if(humanChoice == "scissors")
     {
         if(computerChoice == "rock")
         {
             outcome = "You Lost!";
             alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
-            return outcome;
+            computerScore++;
+            return validRound;
         }
         if(computerChoice == "paper")
         {
             outcome = "You Win!"
             alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
-            return outcome;
+            playerScore++;
+            return validRound;
         }
         if(computerChoice == "scissors")
         {
             outcome = "Tie!";
             alert("Round Outcome: " + outcome + "\n" + "Player Choice: " + humanChoice + "\n" + "Computer Choice: " + computerChoice);
-            return outcome;
+            return validRound;
         }
     }
 
@@ -119,10 +132,31 @@ function playRound(humanChoice, computerChoice)
     else
     {
         alert("ERROR: Player Choice was not rock, paper, or scissors.");
-        getHumanChoice(computerChoice);
+        console.log("ERROR: Player Choice was not rock, paper, or scissors.")
+        validRound = false;
+        return validRound;
     }
 }
 
-let computerChoice = getComputerChoice();
-let playerChoice = getHumanChoice();
-playRound(playerChoice, computerChoice);
+function playGame()
+{
+    playerScore = 0;
+    computerScore = 0;
+    let computerChoice;
+    let playerChoice;
+    let roundNum = 1;
+
+    while(roundNum <= 5)
+    {
+        computerChoice = getComputerChoice();
+        playerChoice = getHumanChoice();
+        
+        if(playRound(playerChoice, computerChoice) == true)
+        {
+            roundNum++;
+        }
+    }
+
+    alert("Game Results" + "\n" + "Player Score: " + playerScore + "\n" + "Computer Score: " + computerScore);
+}
+playGame();
